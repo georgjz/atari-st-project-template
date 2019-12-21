@@ -6,7 +6,6 @@ The example code in this repository loads a palette into VDP and displays a simp
 
 I prefer to assemble files into object files first and link them into an executable/ROM in a separate step. So the Makefile in this repository uses both the [vasm assembler][1] and [vlink linker][2].
 
-
 ## Usage 
 
 Use git to clone this repository:
@@ -17,9 +16,7 @@ cd atari-st-project-template
 make
 ```
 
-The makefile will look for all source files ending with `*.s` in the directory `src/` and all its subdirectories. Include files ending with `*.inc` will automatically added to the assembler arguments with `-I`. These files are translated into object files and listings will be placed in the directory `obj/`. Finally, the linker will build the final executable and place it in `build/release`.
-
-**NOTE**: There's no difference between the `debug` and `release` configuration as of now. Standard is `release`. You can add your own `debug` configuration if you wish so.
+The makefile will look for all source files ending with `*.s` in the directory `src/` and all its subdirectories. Include files ending with `*.inc` will automatically added to the assembler arguments with `-I`. These files are translated into object files and listings will be placed in the directory `obj/`. Finally, the linker will build the final executable and place it in `build/`.
 
 ### Switching between Syntax Standards
 

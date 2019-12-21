@@ -1,8 +1,8 @@
-# Makefile for a dummy Amiga assembly project
+# Makefile for a dummy Atari ST assembly project
 # -------------------------------------------
 
 # Edit this portion to fit your project
-BUILDNAME  = demo.prg     # name of the final ROM
+BUILDNAME    = demo.prg     # name of the final ROM
 LINKERSCRIPT = MemMap.ld
 
 ################################################
@@ -11,9 +11,6 @@ LINKERSCRIPT = MemMap.ld
 ################################################
 
 # determine which version to build
-ifneq ($(BUILD),debug)
-    BUILD = release
-endif
 
 # Assembler and Linker
 AS      = vasmm68k_mot
@@ -24,7 +21,7 @@ LDFLAGS = -s -b ataritos -M -T $(LINKERSCRIPT) -t
 # Directories
 SRCDIR   = src
 OBJDIR   = obj
-BUILDDIR = build/$(BUILD)
+BUILDDIR = build
 
 # Make does not offer a recursive wildcard function, so here's one:
 rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
@@ -43,22 +40,17 @@ vpath %.s $(dir $(SOURCES))                     # add source directories to vpat
 # Recipes
 EXECUTABLE = $(BUILDDIR)/$(BUILDNAME)
 
-all: dir $(EXECUTABLE)
-
-debug: $(ASFLAGS) += -g -W2
-debug: dir $(EXECUTABLE)
-
 $(EXECUTABLE): $(SOBJ)
-    $(LD) $(LDFLAGS) -o $@ $^
+	$(LD) $(LDFLAGS) -o $@ $^
 
 $(OBJDIR)/%.o: %.s
-    $(AS) $(ASFLAGS) -L $@Listing.txt -o $@ $< 
+	$(AS) $(ASFLAGS) -L $@Listing.txt -o $@ $< 
 
 .PHONY: clean
 clean:
-    @rm -f $(OBJDIR)/*.*
-    @rm -f $(EXECUTABLE)
+	@rm -f $(OBJDIR)/*.*
+	@rm -f $(EXECUTABLE)
 
 dir:
-    @mkdir -p $(OBJDIR)
-    @mkdir -p $(BUILDDIR)
+	@mkdir -p $(OBJDIR)
+	@mkdir -p $(BUILDDIR)
