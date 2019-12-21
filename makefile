@@ -2,7 +2,7 @@
 # -------------------------------------------
 
 # Edit this portion to fit your project
-BUILDNAME	 = demo.rom 				# name of the final ROM
+BUILDNAME	 = demo.prg 				# name of the final ROM
 LINKERSCRIPT = MemMap.ld
 
 ################################################
@@ -20,8 +20,10 @@ endif
 AS 		= vasmm68k_mot
 # ASFLAGS	= --register-prefix-optional $(INCARGS) # $(BINARGS)
 ASFLAGS	= -spaces -Felf $(INCARGS) # $(BINARGS)
-LD		= m68k-elf-ld
-LDFLAGS = -s -b elf32-m68k -T $(LINKERSCRIPT)
+# LD		= m68k-elf-ld
+LD		= vlink
+# LDFLAGS = -s -b elf32-m68k -T $(LINKERSCRIPT)
+LDFLAGS = -b ataritos #-T $(LINKERSCRIPT)
 
 # Directories
 SRCDIR	 = src
