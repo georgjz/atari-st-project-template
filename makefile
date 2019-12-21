@@ -16,13 +16,9 @@ ifneq ($(BUILD),debug)
 endif
 
 # Assembler and Linker
-# AS 		= m68k-elf-as
 AS 		= vasmm68k_mot
-# ASFLAGS	= --register-prefix-optional $(INCARGS) # $(BINARGS)
 ASFLAGS	= -spaces -Felf $(INCARGS) # $(BINARGS)
-# LD		= m68k-elf-ld
 LD		= vlink
-# LDFLAGS = -s -b elf32-m68k -T $(LINKERSCRIPT)
 LDFLAGS = -b ataritos #-T $(LINKERSCRIPT)
 
 # Directories
