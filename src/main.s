@@ -7,9 +7,6 @@
 ;   Main: This is the program's entry point.
 ;-------------------------------------------------------------------------------
 Main::
-    move.w  #100,d0
-
-
     clr.l   -(sp)               ; set supervisor mode
     move.w  #32, -(sp)
     trap #1
