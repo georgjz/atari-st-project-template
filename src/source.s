@@ -16,6 +16,7 @@ setpix      equ   $a001
 getpix      equ   $a002
 drwlin      equ   $a003
 
+    section code
 start:
    jsr   initialize  
 
@@ -41,13 +42,13 @@ start:
    clr.l    -(a7)               ;call gemdos
    trap     #1
    
-initialize:                     ; go into super user mode
-   clr.l    -(a7) 
-   move.w   #32,-(a7)  
-   trap     #1     
-   addq.l   #6,a7   
-   move.l   d0,oldstack
-   rts
+; initialize:                     ; go into super user mode
+;   clr.l    -(a7) 
+;   move.w   #32,-(a7)  
+;   trap     #1     
+;   addq.l   #6,a7   
+;   move.l   d0,oldstack
+;   rts
    
 restore:                        ; go back into user mode
    move.l   oldstack,-(a7)
@@ -56,4 +57,4 @@ restore:                        ; go back into user mode
    addq.l   #6,a7
    rts
 
-oldstack dc.l 0
+oldstack:: dc.l 0
