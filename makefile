@@ -19,7 +19,7 @@ endif
 AS 		= vasmm68k_mot
 ASFLAGS	= -spaces -Felf $(INCARGS) # $(BINARGS)
 LD		= vlink
-LDFLAGS = -s -b ataritos -M #-T $(LINKERSCRIPT) -t 
+LDFLAGS = -s -b ataritos -M -T $(LINKERSCRIPT) -t 
 
 # Directories
 SRCDIR	 = src

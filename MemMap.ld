@@ -9,11 +9,15 @@ SECTIONS
     code :
     {
         /* . = 0x001a; */
-        *(code)
         *(init)
+        *(main)
         /*. = ORIGIN(CODE) + LENGTH(CODE);*/
     } /* >CODE */
     . = ALIGN(32);
+    bss : 
+    {
+        *(bss BSS)
+    }
 }
 
 /* OUTPUT_FORMAT(binary) */
