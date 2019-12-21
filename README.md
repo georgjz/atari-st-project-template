@@ -1,6 +1,6 @@
-# Simple Sega Genesis/Mega Drive Project Template
+# Simple Atari ST Project Template
 
-This is a simple project template for assembly programming projects for cross-developing for the Sega Genesis/Mega Drive. You'll need [make][3], [vasm][1], and [m68k-elf-ld][2] installed for it to work. Check your distribution's package manager.
+This is a simple project template for assembly programming projects for cross-developing for the Atari ST. You'll need [make][3], [vasm][1], and [m68k-elf-ld][2] installed for it to work. Check your distribution's package manager.
 
 The example code in this repository loads a palette into VDP and displays a simple sprite. Then it enters an endless loop.
 
@@ -12,8 +12,8 @@ I prefer to assemble files into object files first and link them into an executa
 Use git to clone this repository:
 
 ```bash
-git clone https://github.com/georgjz/genesis-project-template
-cd genesis-project-template
+git clone https://github.com/georgjz/atari-st-project-template
+cd atari-st-project-template
 make
 ```
 
